@@ -1,15 +1,10 @@
 
 ![made-with-python](https://img.shields.io/badge/Made%20with-Python3-brightgreen)
 
-<center>
-<img src="static/images/heart.png" width="300"/>
-    <h1>UAWelcome</h1>
-</center>
-
 <br />
 <h1>
 <p align="center">
-  <img src="static/images/heart.png" alt="Logo" width="200">
+  <img src="static/images/heart.png" alt="Logo" width="300">
   <br>UAWelcome
 </h1>
   <p align="center">
