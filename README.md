@@ -5,9 +5,11 @@
   <img src="static/images/heart.png" alt="Logo" width="300">
   <br>UAWelcome
 </h1>
+<h2>
   <p align="center">
-<h2>Graphs connecting people to help the refugee crisis </h2>   <br />
+Graphs connecting people to help the refugee crisis  <br />
     </p>
+</h2>
 </p>
 
 
