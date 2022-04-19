@@ -1,6 +1,7 @@
 
 ![made-with-python](https://img.shields.io/badge/Made%20with-Python3-brightgreen)
-![logo](https://github.com/erekhinskaya/UAWelcome-graph/blob/main/static/images/heart.png "Title")
+<img src="static/images/heart.png" width="128"/>
+
 
 # UAWelcome
 
