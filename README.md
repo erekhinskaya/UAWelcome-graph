@@ -6,12 +6,10 @@
   <br>UAWelcome
 </h1>
   <p align="center">
-Graphs connecting people to help the refugee crisis    <br />
+<h2>Graphs connecting people to help the refugee crisis </h2>   <br />
     </p>
 </p>
 
-
-## Graphs connecting people to help the refugee crisis
 
 UAWelcome is a graph-based crowdsourcing platform connecting refugees with those who can help, optimizing limited and scattered resources. Designed to be simple to use and maintain for rapidly changing workflows.
 
