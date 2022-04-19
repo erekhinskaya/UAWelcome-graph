@@ -1,6 +1,7 @@
 
 ![made-with-python](https://img.shields.io/badge/Made%20with-Python3-brightgreen)
-![logo](https://github.com/erekhinskaya/UAWelcome-graph/blob/main/static/images/heart.png)
+![logo](https://github.com/erekhinskaya/UAWelcome-graph/blob/main/static/images/heart.png "Title")
+
 # UAWelcome
 
 ## Graphs connecting people to help the refugee crisis
