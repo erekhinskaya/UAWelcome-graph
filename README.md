@@ -105,7 +105,7 @@ The project was started for the TigerGraph hackathon by:
   
 [Tatiana Erekhinskaya] - Tech Lead, please contact via LinkedIn
   
-[Kateryna Panova] - Project Lead
+[Kateryna Panova] - [UAWelcome.org](http://UAWelcome.org) Project Lead
   
 [Princess Dickens] - Content Lead
 
