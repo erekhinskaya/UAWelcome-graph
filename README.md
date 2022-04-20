@@ -100,6 +100,7 @@ Currently, this version is an early prototype. Immediate priorities are:
 
 ## Team
 The project was started for TigerGraph hackaton by:
+  
 [Tatiana Erekhinskaya] - Tech Lead, please contact via LinkedIn
   
 [Kateryna Panova] - Project Lead
@@ -108,7 +109,9 @@ The project was started for TigerGraph hackaton by:
 
 ## Credits
 The interactive html table implementation were inspired by these guides:
+  
 https://blog.miguelgrinberg.com/post/beautiful-interactive-tables-for-your-flask-templates
+  
 https://tutorial101.blogspot.com/2021/04/live-editable-table-using-python-flask.html
 
 ## License
