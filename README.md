@@ -37,7 +37,7 @@ Install the dependencies from requirements file and start the server.
 
 ## Docker
 You can try out UAWelcome in a Docker container.
-Download the image from https://github.com/erekhinskaya/UAWelcome-graph, load it and run as shown below.
+Download the image from https://github.com/erekhinskaya/UAWelcome-graph/releases/download/v0.0.1/uawelcome.tar.zip, unzip, load it and run as shown below.
 You can change app-config.properties to use your Tigergraph instance.
 
 ```sh
