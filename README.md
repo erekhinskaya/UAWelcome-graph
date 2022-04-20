@@ -73,8 +73,8 @@ View is basically a table generated from attributes of a person and services she
 The needs and available resources are sorted from larger/harder to smaller/easier. Then for each need, we find K resources (looping top-down on the sorted resource) that satisfy some hard-limit criteria and were not assigned yet more than M times. We can further enhance this benefit scores and do a full-blown [Assignment Problem]( https://en.wikipedia.org/wiki/Assignment_problem), but the current priority is to have a sub-optimal solution that is easy to maintain as we keep gathering insights.
 
 For a new matching, you need to create two per-installed queries: 
-1. match<ResourceType> for generating candidate pairs.
-2. print<ResourceType> for displaying the tables.
+1. matchResourceType for generating candidate pairs, ResourceType should exact Vertex type from the graph schema.
+2. printResourceType for displaying the tables.
 
 On the code side, all you need to do is extend Matcher<ResourceType>(AbstractMatcherApp).
 
@@ -96,6 +96,8 @@ Currently, this version is an early prototype. Immediate priorities are:
 ### In long run:
 1. NLP - parse textual fields to extract more information about needs, recognize mistakes (contradicting data, filling a wrong form).
 2. Machine Translation, as it's one of the barries for help.
+  
+
 
 
 ## Team
