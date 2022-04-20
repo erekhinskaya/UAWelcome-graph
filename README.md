@@ -42,7 +42,7 @@ You can change app-config.properties to use your Tigergraph instance.
 
 ```sh
 docker load -i uawelcome.tar
-docker run -d -p 5000:5000 --name=uawelcome 
+docker run -d -p 5000:5000 uawelcome 
 
 ```
 ## TigerGraph
