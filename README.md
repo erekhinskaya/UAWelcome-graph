@@ -21,9 +21,7 @@ UAWelcome is a graph-based crowdsourcing platform connecting refugees with those
 - Providing task-specific views of data (i.e. Ticket donators for email campaign). Designed so that adding a new view only takes a single GSQL query and <20 lines of code. The idea is to help volunteers navigate through data in the most efficient way, as well as protect data from accidental changes
 - Matching people in need to those who can help. This is done with a GSQL query that checks the hard constraints of the match, i.e. shared language, and maximizes the matching of other factors for better individual experience and the optimization of resources.
 
-<p align="center">
-  [![IMAGE ALT TEXT](http://img.youtube.com/vi/GOLQr86zRWQ/0.jpg)](http://www.youtube.com/watch?v=GOLQr86zRWQ "Demo for the TigerGraph Hackathon")
- </p>
+ [![IMAGE ALT TEXT](http://img.youtube.com/vi/GOLQr86zRWQ/0.jpg)](http://www.youtube.com/watch?v=GOLQr86zRWQ "Demo for the TigerGraph Hackathon")
 
 ## Tech
 
