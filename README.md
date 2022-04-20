@@ -43,7 +43,8 @@ node app
 
 ## Docker
 You can try out UAWelcome in a Docker container.
-Download the image from TODO, load it and run as shown below. You can change app-config.properties to use your Tigergraph instance - see [/Tigergraph] section below 
+Download the image from https://github.com/erekhinskaya/UAWelcome-graph, load it and run as shown below.
+You can change app-config.properties to use your Tigergraph instance.
 
 ```sh
 docker load -i uawelcome.tar
@@ -51,27 +52,37 @@ docker run -d -p 5000:5000 --name=uawelcome
 
 ```
 ## TigerGraph
-The ./tigergraph folder contains the schema and GSQL queries used in this project. 
-You can import it to your instance for full control: https://docs.tigergraph.com/gui/current/graphstudio/export-and-import-solution
+If you want to use your instance of Tigergraph, please see ./tigergraph folder with exported schema and GSQL queries used in this project. 
+You can import them to your instance for full control: https://docs.tigergraph.com/gui/current/graphstudio/export-and-import-solution
+
+## The Schema
+Vertices represent people, the services they might need and the services they can offer. There is a variety of services with different attributes that can be exchanged. Also, volunteering activities are represented separately as it's a more continuos activity and not necesserely benefits a particular refugee case directy.
 
 ## Quick Start Guide
 
 We recommend you to create your own instance of TigerGraph. The graph used by default is shared between users, so you might see different results depending on other user actions.
 
-1. Upload the csv from ./data folder in Upload & Parse CSV app.
-2. See a simple view for Ticket Donators - these are people selected by appTicketDonators query. You can export the data as a csv, upload it to MailChimp and do an email campaing.
-3. There is a number of views for Verification of Refugees, Angels (those who hosts and directly helps Refugees), and Volunteers (those who coordinate the operations - the primary users of the platform). When user works on verification, the idea is to contact the person, double-check the data and mark as verified to be picked up by downstream tasks. For more details, please see the app-specific GSQL query.
-4. Matching apps allow to connect the need and available resource. You can see a single need on top, as well as options at the bottom.  TODO - you can see that 
- For more details, please see the app-specific GSQL query.
+1. Upload the form submission information ./data/demo_data.csv under Upload & Parse CSV app.
+2. See a simple view for Ticket Donators - these are people selected by appTicketDonators query. You can export the data as a csv, upload it to MailChimp and do an email campaing. All you need to know at this point as a volunteer, nothing extra.
+3. There is a number of views for Verification of Refugees, Angels (those who hosts and directly helps Refugees), and Volunteers (those who coordinate the operations - the primary users of the platform). When user works on verification, the idea is to contact the person, double-check the data and mark as verified, so that the record is picked up by downstream tasks.
+4. Matching apps allow to connect the need and available resource. You can see a single need on top, as well as options at the bottom.  If you run this scenario on top of empty store, you can see that the first match shown requires to host 4 people, while the next one goes down to 3. The overall idea of matching is to provide for the needs of refugees at the best we can, also avoiding the wasted resources. 
+5. Entity Resolution. There is an early version of resolving person entities based on matching name, email and phone number.
 
 ## Development
 
 Want to contribute or use it for your team? Great!
 
 ### Create a new View
+View is basically a table generated from attributes of a person and services she can provide. Mostly used for verification and collecting further detail. You would need to create a single GSQL query to fetch the data, and a few lines of code to communicate how columns should behave - uneditable/editable text, drop down, etc. 
 
 ### Create a new Matching
+The needs and available resources are sorted from larger/harder to smaller/easier. Then for each need, we find K resources (looping top-down on the sorted resource) that satisfy some hard-limit criteria and were not assigned yet more than M times. We can further enhance this benefit scores and do a full-blown [Assignment Problem]( https://en.wikipedia.org/wiki/Assignment_problem), but the current priority is to have a sub-optimal solution that is easy to maintain as we keep gathering insights.
 
+For a new matching, you need to create two per-installed queries: 
+1. match<ResourceType> for generating candidate pairs.
+2. print<ResourceType> for displaying the tables.
+
+On the code side, all you need to do is extend Matcher<ResourceType>(AbstractMatcherApp).
 
 ## Vision
 
@@ -86,10 +97,11 @@ Currently, this version is an early prototype. Immediate priorities are:
     - concurrent updates
 2. Smarter parsing - mapping from original forms/csv headers to parsing functions to vertex attributes
 3. User profile page to be able to enable/disable types of activities, maintain schedule 
+4. Handling temporality - "X provides accommodation for Y from Date1 to Date2"
 
 ### In long run:
 1. NLP - parse textual fields to extract more information about needs, recognize mistakes (contradicting data, filling a wrong form).
-
+2. Machine Translation, as it's one of the barries for help.
 
 
 ## Team
