@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script type='text/javascript'>
+$(document).ready(function(){
+ $('#remove').click(function(){
+    var val = $("input[type='text']").val();
+
+        $.ajax({
+     url: '/removeById/'+val,
+     type: 'post',
+     data: { },
+     success:function(response){
+        if (response == 1){
+           console.log('Save successfully');
+           location.href = "/success"
+        }else{
+           console.log("Not saved.");
+        }
+     }
+    });
+});
+
+ $('#finalize-match').click(function() {
+    var val = $("input[type='radio']:checked").val();
+    var id = $("input[type='radio']:checked").attr('id');
+
+        $.ajax({
+     url: '/match',
+     type: 'post',
+     data: { id1:val, id2:id },
+     success:function(response){
+        if (response == 1){
+           console.log('Save successfully');
+           location.href = "/finalized_match"
+        }else{
+           console.log("Not saved.");
+        }
+     }
+    });
+});
+
+ // Show Input element
+ $('.edit').click(function(){
+  $('.txtedit').hide();
+  $(this).next('.txtedit').show().focus();
+  $(this).hide();
+ });
+ 
+ // Save data
+ $(".txtedit").focusout(function(){
+   
+  // Get edit id, field name and value
+  var id = this.id;
+  var split_id = id.split("_");
+  var field_name = split_id[0];
+  var edit_id = split_id[1];
+  var vertex_type = split_id[2]
+  var value = $(this).val();
+   
+  // Hide Input element
+  $(this).hide();
+ 
+  // Hide and Change Text of the container with input elmeent
+  $(this).prev('.edit').show();
+  $(this).prev('.edit').text(value);
+ 
+  $.ajax({
+   url: '/update',
+   type: 'post',
+   data: { field:field_name, value:value, id:edit_id, vertex_type:vertex_type },
+   success:function(response){
+      if(response == 1){ 
+         console.log('Save successfully'); 
+      }else{ 
+         console.log("Not saved.");  
+      }
+   }
+  });
+  
+ });
+ 
+});
+</script>
+  </head>
+  <body>
+    <div class="container" style="text-align:center;">
+      <a  href="/">
+         <img alt="Logo" class="center" src="/static/images/heart.png" width="250">
+      </a>
+      <br>
+      <h1 class="text-center" href="0.0.0.0:5000/">UAWelcome Back Office</h1>
+      <hr>
+      <br>
+      <h2>{{ title }}</h2>
+      {% block content %}{% endblock %}
+    </div>
+    {% block scripts %}{% endblock %}
+	<style>
+.edit{
+ width: 100%;
+ height: 25px;
+}
+.editMode{
+ border: 1px solid black;
+}
+
+table tr:nth-child(1) th{
+ padding:10px 0px;
+ letter-spacing: 1px;
+}
+table td{
+ padding:10px;
+}
+
+.txtedit{
+ display: none;
+ width: 99%;
+ height: 30px;
+}
+</style>
+  </body>
+</html>

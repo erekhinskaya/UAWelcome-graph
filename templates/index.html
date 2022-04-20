@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" >
+    <div class="card-body">
+      <h5 class="card-title">Angels</h5>
+      <div class="panel-body">
+<a href="/views/TicketDonators" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">Ticket Donators</a>
+<br>
+<a href="/views/HostVerification" class="btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">Host Verification</a>
+      </div>
+    </div>
+ </div>
+<br>
+<div class="card" >
+    <div class="card-body">
+      <h5 class="card-title">Refugees</h5>
+      <div class="panel-body">
+          <a href="/views/RefugeeAccommodationVerification" class="btn btn-lg active btn-block" style="background-color: #edaa00; color: white" role="button" aria-pressed="true">Refugee Accommodation Verification</a>
+    <br>
+          <a href="/match/MatchAccommodation" class="btn btn-lg active btn-block" style="background-color: #edaa00; color: white" role="button" aria-pressed="true">Accommodation Matching</a>
+      <br>
+          <a href="/match/MatchSchool" class="btn btn-lg active btn-block" style="background-color: #edaa00; color: white" role="button" aria-pressed="true">School Guidance</a>
+      <br>
+          <a href="/match/MatchPaperwork" class="btn btn-lg active btn-block" style="background-color: #edaa00; color: white" role="button" aria-pressed="true">Paperwork Guidance</a>
+      </div>
+    </div>
+</div>
+<br>
+<div class="card" >
+    <div class="card-body">
+      <h5 class="card-title">Volunteers</h5>
+      <div class="panel-body">
+          <a href="/views/VolunteerVerification" class="bbtn btn-info btn-lg active btn-block"  role="button" aria-pressed="true">Volunteer Verification</a>
+      </div>
+
+    </div>
+</div>
+<br>
+<div class="card" >
+    <div class="card-body">
+      <h5 class="card-title">Uploading & Cleaning Data</h5>
+      <div class="panel-body">
+          <a href="/upload" class="btn btn-secondary btn-lg active btn-block" role="button" aria-pressed="true">Upload & Parse Forms Data</a>
+      <br>
+          <a href="/remove" class="btn btn-secondary btn-lg active btn-block" role="button" aria-pressed="true">Remove Record</a>
+      <br>
+          <a href="/resolve/ResolvePerson" class="btn btn-secondary btn-lg active btn-block" role="button" aria-pressed="true">Entity Resolution</a>
+      </div>
+    </div>
+</div>
+<br>
+{% endblock %}

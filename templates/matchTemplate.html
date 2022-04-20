@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+</script>
+{% block content %}
+<h2>{{Type}} Matching</h2>
+<br>
+<div class="table-responsive" style="overflow-x: auto;">
+  {{table_needed|safe}}
+</div>
+<br>
+<h2>Options:</h2>
+<div class="table-responsive" style="overflow-x: auto;">
+  {{table_options|safe}}
+</div>
+<div>
+<a id="finalize-match" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Finalize Match</a>
+</div>
+<br>
+<div>
+<a href="/match/MatchAccommodation" class="btn  btn-secondary btn-lg active" role="button" aria-pressed="true">Next Case</a>
+</div>
+{% endblock %}

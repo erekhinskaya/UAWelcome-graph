@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+</script>
+{% block content %}
+<h2>{{Type}} Matching</h2>
+<br>
+<div class="table-responsive" style="overflow-x: auto;">
+  {{table_needed|safe}}
+</div>
+<br>
+<h2>Options:</h2>
+<div class="table-responsive" style="overflow-x: auto;">
+  {{table_options|safe}}
+</div>
+
+{% endblock %}

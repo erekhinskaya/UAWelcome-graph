@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<div class="table-responsive" style="overflow-x: auto;">
+  {{table|safe}}
+  <form action="{{table_export_url|safe}}">
+    <input type="submit" value="Click to Export" />
+  </form>
+</div>
+{% endblock %}

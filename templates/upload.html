@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <h2 class="text-center">Upload csv file from Wordpress forms</h2>
+
+      <form action = "/uploader" method = "POST"
+         enctype = "multipart/form-data" style="text-align: center; ">
+         <!--<input id="input-b1" name="input-b1" type="file" class="file" data-browse-on-zone-click="true"/>-->
+         <br>
+         <input type="file"  name = "file" class="form-control" id="customFile" />
+         <br>
+          <center>
+         <input class="btn btn-primary btn-lg active btn-block" style="width: 30%" type = "submit"/>
+          </center>
+      </form>
+
+{% endblock %}

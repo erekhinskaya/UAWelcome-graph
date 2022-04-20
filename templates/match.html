@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Host Matching</h2>
+<br>
+<div class="table-responsive" style="overflow-x: auto;">
+  <table id="data" class="table table-bordered table-hover"><thead class="thead-light">
+  <tr>
+  <th scope="col">ID</th>
+  <th scope="col">Name</th>
+  <th scope="col">Phone</th>
+  <th scope="col">Email</th>
+  <th scope="col">HostLimit</th>
+  <th scope="col">HasKids</th>
+  <th scope="col">Message</th>
+  </tr>
+</thead>
+  <tbody><tr>  <td>1000004</td>  <td>Anna</td>  <td>1233333345</td>  <td>AnnaP@gmail.com</td>
+  <td>3</td>  <td><div class="edit">Preschool Elementary</div>
+  <input type="text" class="txtedit" value="" id="HasKids_1000004"></td>
+  <td>Hi, we me and my daughters arrived 3 weeks ago, looking for a place to stay. Would like to stay in Charlotte, my daughter is already in school here.</td>
+  </tr> </tbody></table>
+</div>
+<br>
+<h2>Options:</h2>
+<div class="table-responsive" style="overflow-x: auto;">
+    <table id="data" class="table table-bordered table-hover"><thead class="thead-light">
+  <tr>
+  <th scope="col">ID</th>
+  <th scope="col">Name</th>
+  <th scope="col">Phone</th>
+  <th scope="col">Email</th>
+  <th scope="col">HostLimit</th>
+  <th scope="col">HasKids</th>
+    <th scope="col">Location</th>
+  <th scope="col">Message</th>
+    <th scope="col">Select</th>
+  </tr>
+</thead>
+  <tbody><tr>  <td>1000034</td>  <td>Lori Smith</td>  <td>3233333345</td>  <td>lori@msn.com</td>
+  <td>3</td>  <td><div class="edit"></div>
+  <input type="text" class="txtedit" value="" id="HasKids_1000004"></td>
+    <td>Charlotte, North Carolina</td>
+  <td>We are horrified by what is happening and the destruction of Ukraine and families being torn apart and children without a home. We would like to volunteer and welcome a refugee or any child to our home to live safely. Or we can assist a family relocating here. We will pray for peace every day.</td>
+    <td><input type="radio" id="html" name="fav_language" value="HTML"></td>
+  </tr>
+  <tr>  <td>1000012</td>  <td>Ann West</td>  <td>3333334512</td>  <td>west@microsoft.com</td>
+  <td>3</td>  <td><div class="edit">Preschool Elementary</div>
+  <input type="text" class="txtedit" value="" id="HasKids_1000004"></td>
+    <td>Mount Holly, NC ( near Charlotte NC)</td>
+  <td>We have a spare bedroom and bathroom in our home we could take Mom and kids or a couple with children. We are also pet friendly and have 2 dogs and 2 cats (the dogs are big but friendly).</td>
+    <td><input type="radio" id="html" name="fav_language" value="CSV"></td>
+  </tr>
+  </tbody></table>
+</div>
+<div>
+<a href="/finalize_match" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Finalize Match</a>
+</div>
+<br>
+<div>
+<a href="/finalize_match" class="btn  btn-secondary btn-lg active" role="button" aria-pressed="true">Next Case</a>
+</div>
+{% endblock %}

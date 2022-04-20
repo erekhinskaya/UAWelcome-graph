@@ -43,12 +43,16 @@ node app
 
 ## Docker
 You can try out UAWelcome in a Docker container.
-Download the image from TODO, load it and run as shown below. You can change tigergraph.yaml to use your Tigergraph instance - see [/Tigergraph] section below 
+Download the image from TODO, load it and run as shown below. You can change app-config.properties to use your Tigergraph instance - see [/Tigergraph] section below 
 
 ```sh
-docker load -i windowsservercore.tar
-docker run -d -p 5000:5000 --name=uawelcome TODO tigerfile
+docker load -i uawelcome.tar
+docker run -d -p 5000:5000 --name=uawelcome 
+
 ```
+## TigerGraph
+The ./tigergraph folder contains the schema and GSQL queries used in this project. 
+You can import it to your instance for full control: https://docs.tigergraph.com/gui/current/graphstudio/export-and-import-solution
 
 ## Quick Start Guide
 
@@ -68,9 +72,25 @@ Want to contribute or use it for your team? Great!
 
 ### Create a new Matching
 
-## TigerGraph
-The ./tigergraph folder contains the schema and GSQL queries used in this project. 
-You can import it to your instance for full control: https://docs.tigergraph.com/gui/current/graphstudio/export-and-import-solution
+
+## Vision
+
+Currently, this version is an early prototype. Immediate priorities are:
+ - is to expand to all forms and tasks currently at hand
+ - improve UI to minimize the clicks
+ - include guidelines for outliers and edge cases - general and specific (i.e. if you see that applicant filled in a wrong form - fill in a correct form with relevant data, and remove current record)
+
+### Must-have Features:
+1. Scaling for larger team:
+    - authentications & access group (can be modelled in the graph together with processes)
+    - concurrent updates
+2. Smarter parsing - mapping from original forms/csv headers to parsing functions to vertex attributes
+3. User profile page to be able to enable/disable types of activities, maintain schedule 
+
+### In long run:
+1. NLP - parse textual fields to extract more information about needs, recognize mistakes (contradicting data, filling a wrong form).
+
+
 
 ## Team
 The project was started for TigerGraph hackaton by:
@@ -96,5 +116,3 @@ MIT
    [Tatiana Erekhinskaya]: <https://www.linkedin.com/in/tatiana-erekhinskaya/>
    [Kateryna Panova]: <https://www.linkedin.com/in/kateryna-panova/>
    [Princess Dickens]: <https://www.linkedin.com/in/princess-dickens/>
-MD.txt
-Displaying MD.txt.

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-center">Remove Data</h2>
+<form action = "/removeById" method = "GET">
+  <div>
+    <label>Name:</label>
+    <input id="removeId" name="name" type="text">
+  </div>
+  <div>
+    <input id="remove" type="submit">
+  </div>
+</form>
+
+
+{% endblock %}
