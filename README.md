@@ -46,62 +46,62 @@ docker run -d -p 5000:5000 --name=uawelcome
 
 ```
 ## TigerGraph
-If you want to use your instance of Tigergraph, please see ./tigergraph folder with exported schema and GSQL queries used in this project. 
+If you want to use your instance of Tigergraph, please see the ./tigergraph folder with exported schema and GSQL queries used in this project. 
 You can import them to your instance for full control: https://docs.tigergraph.com/gui/current/graphstudio/export-and-import-solution
 
 ## The Schema
-Vertices represent people, the services they might need and the services they can offer. There is a variety of services with different attributes that can be exchanged. Also, volunteering activities are represented separately as it's a more continuos activity and not necesserely benefits a particular refugee case directy.
+Vertices represent people, the services they might need and the services they can offer. There are a variety of services with different attributes that can be exchanged. Also, volunteering activities such as Writing are represented separately as they are semantically different from helping refugees directly.
 
 ## Quick Start Guide
 
-We recommend you to create your own instance of TigerGraph. The graph used by default is shared between users, so you might see different results depending on other user actions.
+We recommend that you create your own instance of TigerGraph. The graph used by default is shared between users, so you might see different results depending on other user's actions.
 
 1. Upload the form submission information ./data/demo_data.csv under Upload & Parse CSV app.
-2. See a simple view for Ticket Donators - these are people selected by appTicketDonators query. You can export the data as a csv, upload it to MailChimp and do an email campaing. All you need to know at this point as a volunteer, nothing extra.
-3. There is a number of views for Verification of Refugees, Angels (those who hosts and directly helps Refugees), and Volunteers (those who coordinate the operations - the primary users of the platform). When user works on verification, the idea is to contact the person, double-check the data and mark as verified, so that the record is picked up by downstream tasks.
-4. Matching apps allow to connect the need and available resource. You can see a single need on top, as well as options at the bottom.  If you run this scenario on top of empty store, you can see that the first match shown requires to host 4 people, while the next one goes down to 3. The overall idea of matching is to provide for the needs of refugees at the best we can, also avoiding the wasted resources. 
-5. Entity Resolution. There is an early version of resolving person entities based on matching name, email and phone number.
+2. See a simple view for Ticket Donators - these are people selected by appTicketDonators query. You can export the data as a csv, upload it to MailChimp and do an email campaign. This is all you need to know at this point as a volunteer, nothing extra.
+3. There are a number of views for the Verification of Refugees, Angels (those who hosts and helps Refugees directly), and Volunteers (those who coordinate the operations - the primary users of the platform). When a user works on verification, the idea is to contact the person, double-check the data and mark it as verified, so that the record is picked up by downstream tasks.
+4. Matching apps allow us to connect  needs with available resources. You can see a single need on top, as well as options at the bottom.  If you run this scenario on top of the empty store, you can see that the first match shown requires the hosting for 4 people, while the next one goes down to 3. The overall idea of matching is to provide for the needs of refugees as best we can while avoiding the wasted resources. 
+5. Entity Resolution. There is an early version of resolving person entities based on matching names, emails and phone numbers.
 
 ## Development
 
 Want to contribute or use it for your team? Great!
 
 ### Create a new View
-View is basically a table generated from attributes of a person and services she can provide. Mostly used for verification and collecting further detail. You would need to create a single GSQL query to fetch the data, and a few lines of code to communicate how columns should behave - uneditable/editable text, drop down, etc. 
+View is basically a table generated from the attributes of a person and services they can provide. This is mostly used for verification and collecting further details. You would need to create a single GSQL query to fetch the data, and a few lines of code to communicate how columns should behave - uneditable/editable text, drop down, etc.
 
-### Create a new Matching
-The needs and available resources are sorted from larger/harder to smaller/easier. Then for each need, we find K resources (looping top-down on the sorted resource) that satisfy some hard-limit criteria and were not assigned yet more than M times. We can further enhance this benefit scores and do a full-blown [Assignment Problem]( https://en.wikipedia.org/wiki/Assignment_problem), but the current priority is to have a sub-optimal solution that is easy to maintain as we keep gathering insights.
+### Create a new Match
+The needs and available resources are sorted from larger/harder to smaller/easier. Then for each need, we find K resources (looping top-down on the sorted resource) that satisfy some hard-limit criteria and were not yet assigned more than M times. We can further enhance these benefit scores and do a full-blown [Assignment Problem]( https://en.wikipedia.org/wiki/Assignment_problem), but the current priority is to have a sub-optimal solution that is easy to maintain as we keep gathering insights. From architecture perspective, GSQL is flexible to represent the whole algorithm in one query, making it easy to maintain.
 
-For a new matching, you need to create two per-installed queries: 
-1. matchResourceType for generating candidate pairs, ResourceType should exact Vertex type from the graph schema.
+For a new match app, you need to create two per-installed queries: 
+1. matchResourceType for generating candidate pairs. The ResourceType should be the exact Vertex type from the graph schema.
 2. printResourceType for displaying the tables.
 
 On the code side, all you need to do is extend Matcher<ResourceType>(AbstractMatcherApp).
 
 ## Vision
 
-Currently, this version is an early prototype. Immediate priorities are:
- - is to expand to all forms and tasks currently at hand
- - improve UI to minimize the clicks
- - include guidelines for outliers and edge cases - general and specific (i.e. if you see that applicant filled in a wrong form - fill in a correct form with relevant data, and remove current record)
+- to expand to all forms and tasks currently at hand
+- improve UI to minimize clicks
+- include guidelines for outliers and edge cases - general and specific (i.e. if you see that an applicant filled out the wrong form - fill out a correct form with relevant data, and remove the current record)
+- error handling  
 
 ### Must-have Features:
-1. Scaling for larger team:
+1. Scaling for larger teams:
     - authentications & access group (can be modelled in the graph together with processes)
     - concurrent updates
 2. Smarter parsing - mapping from original forms/csv headers to parsing functions to vertex attributes
 3. User profile page to be able to enable/disable types of activities, maintain schedule 
 4. Handling temporality - "X provides accommodation for Y from Date1 to Date2"
 
-### In long run:
+### In The Longer Run:
 1. NLP - parse textual fields to extract more information about needs, recognize mistakes (contradicting data, filling a wrong form).
-2. Machine Translation, as it's one of the barries for help.
-  
+2. Machine Translation, to overcome language barrier for volunteers helping multi-language cases.
+3. The overall ambition is to become an open-source crowdsourcing platform that can be used for various social causes.  
 
 
 
 ## Team
-The project was started for TigerGraph hackaton by:
+The project was started for the TigerGraph hackathon by:
   
 [Tatiana Erekhinskaya] - Tech Lead, please contact via LinkedIn
   
@@ -110,7 +110,7 @@ The project was started for TigerGraph hackaton by:
 [Princess Dickens] - Content Lead
 
 ## Credits
-The interactive html table implementation were inspired by these guides:
+The interactive html table implementation was inspired by these guides:
   
 https://blog.miguelgrinberg.com/post/beautiful-interactive-tables-for-your-flask-templates
   
