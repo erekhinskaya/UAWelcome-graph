@@ -35,12 +35,6 @@ Built on top of a number of open source projects to work properly:
 UAWelcome requires [Python](https://python.org/) v3.9.10 to run.
 Install the dependencies from requirements file and start the server.
 
-```sh
-cd dillinger
-npm i
-node app
-```
-
 ## Docker
 You can try out UAWelcome in a Docker container.
 Download the image from https://github.com/erekhinskaya/UAWelcome-graph, load it and run as shown below.
@@ -107,7 +101,9 @@ Currently, this version is an early prototype. Immediate priorities are:
 ## Team
 The project was started for TigerGraph hackaton by:
 [Tatiana Erekhinskaya] - Tech Lead, please contact via LinkedIn
+  
 [Kateryna Panova] - Project Lead
+  
 [Princess Dickens] - Content Lead
 
 ## Credits
